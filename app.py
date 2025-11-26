@@ -7,7 +7,7 @@ import cloudinary.uploader
 import os
 
 # Import configuration and database modules
-from config import (
+from helper.config import (
     ALLOWED_EXTENSIONS,
     MAX_CONTENT_LENGTH,
     SECRET_KEY,
@@ -15,7 +15,7 @@ from config import (
     configure_cloudinary,
     CLOUD_UPLOAD_FOLDER,
 )
-from database import get_db_connection, close_connection, test_connection, init_connection_pool
+from helper.database import get_db_connection, close_connection, test_connection, init_connection_pool
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
