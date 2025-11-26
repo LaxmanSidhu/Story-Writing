@@ -1,0 +1,70 @@
+.admin-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.login-card,
+.panel-card {
+    background: white;
+    border-radius: 28px;
+    padding: clamp(24px, 5vw, 44px);
+    box-shadow: 0 25px 75px rgba(31, 31, 57, 0.15);
+}
+
+.login-card form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.panel-card header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stories-list {
+    display: grid;
+    gap: 16px;
+}
+
+.stories-list article {
+    border: 1px solid rgba(108, 99, 255, 0.15);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stories-list .story-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.stories-list .actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.stories-list button {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 16px;
+    background: var(--red);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.placeholder {
+    color: var(--text-muted);
+}
+

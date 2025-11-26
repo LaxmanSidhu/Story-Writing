@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body class="home-page">
+    <header class="site-header">
+        <a href="{{ url_for('index') }}" class="brand">
+            <span class="brand-icon">📖</span>
+            Community Stories
+        </a>
+        <nav class="site-nav">
+            <a href="{{ url_for('index') }}" class="active">Home</a>
+            <a href="{{ url_for('add_story_page') }}">Add Story</a>
+            <a href="{{ url_for('admin_page') }}">Admin</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="kicker">Community powered blog</p>
+                <h1>Share your story. Inspire someone new every day.</h1>
+                <p class="lead">Read heartfelt experiences from people around the world or publish your own in minutes.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="{{ url_for('add_story_page') }}">Share your story</a>
+                    <a class="btn ghost" href="{{ url_for('admin_page') }}">Moderate as admin</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <p class="hero-card__kicker">Live Counter</p>
+                <p class="hero-card__big" id="story-count">0+</p>
+                <p class="hero-card__note">stories published by the community.</p>
+            </div>
+        </section>
+
+        <section class="stories-section">
+            <div class="section-heading">
+                <div>
+                    <p class="kicker">Latest</p>
+                    <h2>Fresh stories just in</h2>
+                </div>
+                <a class="link-cta" href="{{ url_for('add_story_page') }}">Publish yours →</a>
+            </div>
+            <div id="stories-container" class="stories-grid">
+                <div class="loading-panel">
+                    <div class="spinner"></div>
+                    <p>Loading stories...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Built for the community • <a href="mailto:hello@example.com">Contact admin</a></p>
+    </footer>
+
+    <div id="story-modal" class="modal">
+        <div class="modal-content">
+            <button type="button" class="close-modal" aria-label="Close full story">&times;</button>
+            <div id="modal-story-content"></div>
+        </div>
+    </div>
+
+    <template id="story-card-template">
+        <article class="story-card">
+            <div class="story-image fallback"></div>
+            <div class="story-content">
+                <p class="story-meta"></p>
+                <h3></h3>
+                <p class="story-description"></p>
+                <div class="story-actions">
+                    <button type="button" class="link-btn read-more">Read full story →</button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script defer src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
+

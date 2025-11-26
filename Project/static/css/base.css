@@ -1,0 +1,237 @@
+:root {
+    --purple: #6c63ff;
+    --purple-dark: #5148d8;
+    --pink: #f093fb;
+    --red: #ff6b6b;
+    --bg: #f8f7ff;
+    --text-dark: #1f1f39;
+    --text-muted: #6c6c89;
+    --border: #e4e2ff;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #fef1ff, #eff2ff 45%, #f4f7ff 100%);
+    color: var(--text-dark);
+    padding: 24px clamp(16px, 4vw, 48px) 40px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.site-header {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 18px 50px rgba(108, 99, 255, 0.15);
+    padding: 18px clamp(18px, 4vw, 32px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.brand-icon {
+    font-size: 1.6rem;
+}
+
+.site-nav {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--purple);
+    border-color: rgba(108, 99, 255, 0.3);
+}
+
+.site-nav a.active {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+}
+
+.kicker {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 14px;
+    padding: 12px 24px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary {
+    color: white;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    box-shadow: 0 12px 30px rgba(108, 99, 255, 0.35);
+}
+
+.btn.primary:hover {
+    transform: translateY(-1px);
+}
+
+.btn.ghost {
+    color: var(--purple);
+    background: white;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.btn.full-width {
+    width: 100%;
+}
+
+.site-footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.site-footer a {
+    color: var(--purple);
+    font-weight: 600;
+}
+
+label {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-dark);
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+input[type="file"] {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.loading-panel {
+    width: 100%;
+    padding: 48px 0;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-muted);
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 4px solid rgba(108, 99, 255, 0.25);
+    border-top-color: var(--purple);
+    animation: spin 1s linear infinite;
+}
+
+.success-message,
+.error-message {
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.success-message {
+    background: #e5f7ef;
+    color: #157347;
+}
+
+.error-message {
+    background: #ffe5e9;
+    color: #a32132;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel • Community Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <a href="{{ url_for('index') }}" class="brand">
+            <span class="brand-icon">📖</span>
+            Community Stories
+        </a>
+        <nav class="site-nav">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_story_page') }}">Add Story</a>
+            <a href="{{ url_for('admin_page') }}" class="active">Admin</a>
+        </nav>
+    </header>
+
+    <main class="admin-wrapper">
+        <section class="login-card" id="admin-login">
+            <div>
+                <p class="kicker">Moderator access</p>
+                <h1>Sign in to remove inappropriate stories.</h1>
+                <p>Only trusted admins should have these credentials. Change them regularly in MySQL for better security.</p>
+            </div>
+            <div id="admin-message"></div>
+            <form id="admin-login-form">
+                <label>
+                    Username
+                    <input type="text" id="admin_username" autocomplete="username" required>
+                </label>
+                <label>
+                    Password
+                    <input type="password" id="admin_password" autocomplete="current-password" required>
+                </label>
+                <button type="submit" class="btn primary full-width">Login</button>
+            </form>
+        </section>
+
+        <section class="panel-card hidden" id="admin-panel">
+            <header>
+                <div>
+                    <p class="kicker">Moderation queue</p>
+                    <h2>All community stories</h2>
+                </div>
+                <button type="button" class="btn ghost" id="logout-btn">Logout</button>
+            </header>
+            <div id="admin-stories" class="stories-list">
+                <p class="placeholder">No stories to show.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Logged in as site admin • Keep community safe</p>
+    </footer>
+
+    <script defer src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
+
