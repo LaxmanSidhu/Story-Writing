@@ -4,6 +4,7 @@ from mysql.connector import Error
 import logging
 import cloudinary
 import cloudinary.uploader
+import os
 
 # Import configuration and database modules
 from config import (
@@ -223,7 +224,7 @@ def verify_admin():
         close_connection(connection)
         return jsonify({'error': f'Database error: {str(e)}'}), 500
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Test database connection on startup
     logger.info("Testing database connection...")
     success, message = test_connection()
@@ -233,5 +234,6 @@ if __name__ == '__main__':
         logger.warning(f"⚠ {message}")
         logger.warning("The application will start, but database operations may fail.")
         logger.warning("Please check your database configuration in config.py")
-    
-    app.run(debug=DEBUG, port=5000, host='0.0.0.0')
+
+    # Railway automatically provides PORT environment variable
+    app.run( debug=DEBUG, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)) )
