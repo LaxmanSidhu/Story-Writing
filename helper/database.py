@@ -5,7 +5,7 @@ Handles MySQL connections with proper error handling and retry logic.
 
 import mysql.connector
 from mysql.connector import Error, pooling
-from config import DB_CONFIG
+from helper.config import DB_CONFIG
 import logging
 
 # Set up logging
